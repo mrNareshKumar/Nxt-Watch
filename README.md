@@ -1,4 +1,4 @@
-# LIVE DEMO :-  <a href="https://nxttendzcart.ccbp.tech/">Nxt Watch Application</a>
+# LIVE DEMO :-  <a href="https://nxtwatchnk.ccbp.tech/">Nxt Watch Application</a>
 ### Login Details
 Username: rahul </br>
 Password: rahul@2021
