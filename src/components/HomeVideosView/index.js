@@ -38,10 +38,10 @@ const HomeVideosView = props => {
               alt="no videos"
             />
             <NoResultsHeading color={styles.headingColor}>
-              No Search result found
+              No Search results found
             </NoResultsHeading>
             <NoResultsNote color={styles.noteColor}>
-              Try different keywords or remove search filter
+              Try different key words or remove search filter
             </NoResultsNote>
             <RetryButton type="button" onClick={onClickRetry}>
               Retry

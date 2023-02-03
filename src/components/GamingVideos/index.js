@@ -1,37 +1,34 @@
-/* eslint-disable import/named */
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-
-import {HiFire} from 'react-icons/hi'
+import {SiYoutubegaming} from 'react-icons/si'
 
 import Header from '../Header'
 import LeftSideBar from '../LeftSideBar'
 import NxtWatchContext from '../../context/NxtWatchContext'
+import GamingVideoItem from '../GamingVideoItem'
 import FailureView from '../FailureView'
-import TrendingVideoItem from '../TrendingVideoItem'
 
-// eslint-disable-next-line import/no-self-import
 import {
-  TrendingContainer,
-  TitleIconContainer,
-  TrendingVideoTitle,
-  TrendingVideoList,
-  TrendingText,
+  GamingContainer,
+  GamingVideoTitle,
+  GamingTitleIconContainer,
+  GamingText,
   LoaderContainer,
+  GamingVideoList,
 } from './styledComponents'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
-  failure: 'FAILURE',
   success: 'SUCCESS',
+  failure: 'FAILURE',
   inProgress: 'IN_PROGRESS',
 }
 
-class TrendingVideos extends Component {
+class GamingVideos extends Component {
   state = {
     apiStatus: apiStatusConstants.initial,
-    trendingVideos: [],
+    gamingVideos: [],
   }
 
   componentDidMount() {
@@ -41,7 +38,7 @@ class TrendingVideos extends Component {
   getVideos = async () => {
     this.setState({apiStatus: apiStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
-    const url = `https://apis.ccbp.in/videos/trending`
+    const url = `https://apis.ccbp.in/videos/gaming`
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -56,12 +53,9 @@ class TrendingVideos extends Component {
         title: eachVideo.title,
         thumbnailUrl: eachVideo.thumbnail_url,
         viewCount: eachVideo.view_count,
-        publishedAt: eachVideo.published_at,
-        name: eachVideo.channel.name,
-        profileImageUrl: eachVideo.channel.profile_image_url,
       }))
       this.setState({
-        trendingVideos: updatedData,
+        gamingVideos: updatedData,
         apiStatus: apiStatusConstants.success,
       })
     } else {
@@ -73,17 +67,6 @@ class TrendingVideos extends Component {
     this.getVideos()
   }
 
-  renderVideosView = () => {
-    const {trendingVideos} = this.state
-    return (
-      <TrendingVideoList data-testid="trending">
-        {trendingVideos.map(eachVideo => (
-          <TrendingVideoItem key={eachVideo.id} videoDetails={eachVideo} />
-        ))}
-      </TrendingVideoList>
-    )
-  }
-
   renderFailureView = () => <FailureView onRetry={this.onRetry} />
 
   renderLoadingView = () => (
@@ -92,7 +75,18 @@ class TrendingVideos extends Component {
     </LoaderContainer>
   )
 
-  renderTrendingVideos = () => {
+  renderVideosView = () => {
+    const {gamingVideos} = this.state
+    return (
+      <GamingVideoList>
+        {gamingVideos.map(eachVideo => (
+          <GamingVideoItem key={eachVideo.id} videoDetails={eachVideo} />
+        ))}
+      </GamingVideoList>
+    )
+  }
+
+  renderGamingVideos = () => {
     const {apiStatus} = this.state
 
     switch (apiStatus) {
@@ -112,23 +106,22 @@ class TrendingVideos extends Component {
       <NxtWatchContext.Consumer>
         {value => {
           const {isDarkTheme} = value
-          const styles = {
-            color: isDarkTheme === false ? '#231f20' : '#f9f9f9',
-            backgroundColor: isDarkTheme === false ? '#f9f9f9' : '#0f0f0f',
-          }
+          const bgColor = isDarkTheme ? '#0f0f0f' : '#f9f9f9'
+          const textColor = isDarkTheme ? '#f9f9f9' : '#231f20'
+
           return (
-            <div data-testid="trending">
+            <div>
               <Header />
               <LeftSideBar />
-              <TrendingContainer data-testid="trending" style={styles}>
-                <TrendingVideoTitle>
-                  <TitleIconContainer>
-                    <HiFire size={35} color="#ff0000" />
-                  </TitleIconContainer>
-                  <TrendingText color={styles.color}>Trending</TrendingText>
-                </TrendingVideoTitle>
-                {this.renderTrendingVideos()}
-              </TrendingContainer>
+              <GamingContainer data-testid="gaming" bgColor={bgColor}>
+                <GamingVideoTitle>
+                  <GamingTitleIconContainer>
+                    <SiYoutubegaming size={35} color="#ff0000" />
+                  </GamingTitleIconContainer>
+                  <GamingText color={textColor}>Gaming</GamingText>
+                </GamingVideoTitle>
+                {this.renderGamingVideos()}
+              </GamingContainer>
             </div>
           )
         }}
@@ -137,4 +130,4 @@ class TrendingVideos extends Component {
   }
 }
 
-export default TrendingVideos
+export default GamingVideos

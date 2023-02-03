@@ -16,7 +16,7 @@ import {
   LogoutButtons,
   LogoutTextButton,
   LogoutIconButton,
-  PopupContainer,
+  ModalContainer,
   PopupText,
   PopupButtonsContainer,
   CancelButton,
@@ -31,8 +31,8 @@ const Header = props => (
 
       const onClickLogout = () => {
         const {history} = props
-        Cookies.remove('jwt_token')
-        history.replace('/login')
+        Cookies.remove("jwt_token")
+        history.replace("/login")
       }
 
       const styles = {
@@ -55,7 +55,7 @@ const Header = props => (
             </Link>
           </NavLogoContainer>
           <NavMenuActionItems>
-            <ThemeButton type="button" onClick={toggleTheme}>
+            <ThemeButton type="button" onClick={toggleTheme} data-testid="theme">
               {isDarkTheme ? (
                 <BsBrightnessHighFill color="#ffffff" size={25} />
               ) : (
@@ -81,11 +81,13 @@ const Header = props => (
                   </LogoutIconButton>
                 </LogoutButtons>
               }
-              className="popup-content"
+              className="popup_content"
             >
               {close => (
-                <PopupContainer>
-                  <PopupText>Are you want to logout?</PopupText>
+                <ModalContainer style={styles}>
+                  <PopupText darkTheme={isDarkTheme}>
+                    Are you sure, you want to logout
+                  </PopupText>
                   <PopupButtonsContainer>
                     <CancelButton
                       type="button"
@@ -98,7 +100,7 @@ const Header = props => (
                       Confirm
                     </ConfirmButton>
                   </PopupButtonsContainer>
-                </PopupContainer>
+                </ModalContainer>
               )}
             </Popup>
           </NavMenuActionItems>

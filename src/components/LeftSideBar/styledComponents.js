@@ -44,7 +44,7 @@ export const ContactContainer = styled.div`
   margin-bottom: 20px;
   padding-left: 15px;
 `
-export const ContactHeading = styled.h1`
+export const ContactHeading = styled.p`
   font-family: Roboto;
   font-size: 20px;
   font-weight: bold;

@@ -4,6 +4,10 @@ import ThemeContext from './context/NxtWatchContext'
 import ProtectedRoute from './components/ProtectedRoute'
 import LoginForm from './components/LoginForm'
 import Home from './components/Home'
+import TrendingVideos from './components/TrendingVideos'
+import VideoDetailView from './components/VideoDetailsView'
+import GamingVideos from './components/GamingVideos'
+import SavedVideos from './components/SavedVideos'
 import NotFound from './components/NotFound'
 import './App.css'
 // Replace your code here
@@ -11,6 +15,7 @@ class App extends Component {
   state = {
     isDarkTheme: false,
     activeTab: 'Home',
+    savedVideos: [],
   }
 
   toggleTheme = () => {
@@ -21,21 +26,50 @@ class App extends Component {
     this.setState({activeTab: tab})
   }
 
+  addVideo = video => {
+    const {savedVideos} = this.state
+    const index = savedVideos.findIndex(eachVideo => eachVideo.id === video.id)
+    if (index === -1) {
+      this.setState({savedVideos: [...savedVideos, video]})
+    } else {
+      savedVideos.splice(index, 1)
+      this.setState({savedVideos})
+    }
+  }
+
+  removeVideo = id => {
+    const {savedVideos} = this.state
+    const updatedSavedVideos = savedVideos.filter(
+      eachVideo => eachVideo.id !== id,
+    )
+    this.setState({savedVideos: updatedSavedVideos})
+  }
+
   render() {
-    const {isDarkTheme, activeTab} = this.state
+    const {isDarkTheme, activeTab, savedVideos} = this.state
     console.log(isDarkTheme)
     return (
       <ThemeContext.Provider
         value={{
           isDarkTheme,
           activeTab,
+          savedVideos,
           setActiveTab: this.setActiveTab,
           toggleTheme: this.toggleTheme,
+          addVideo: this.addVideo,
         }}
       >
         <Switch>
           <Route exact path="/login" component={LoginForm} />
           <ProtectedRoute exact path="/" component={Home} />
+          <ProtectedRoute
+            exact
+            path="/videos/:id"
+            component={VideoDetailView}
+          />
+          <ProtectedRoute exact path="/gaming" component={GamingVideos} />
+          <ProtectedRoute exact path="/trending" component={TrendingVideos} />
+          <ProtectedRoute exact path="/saved-videos" component={SavedVideos} />
           <Route to="not-found" component={NotFound} />
           <Redirect to="not-found" />
         </Switch>

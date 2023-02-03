@@ -79,7 +79,7 @@ export const SearchInput = styled.input`
   border: 1px solid #e2e8f0;
   padding: 15px;
 `
-export const SearchIconContainer = styled.button`
+export const SearchIconButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;

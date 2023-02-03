@@ -5,7 +5,7 @@ import {AiOutlineClose, AiOutlineSearch} from 'react-icons/ai'
 import Header from '../Header'
 import LeftSideBar from '../LeftSideBar'
 import HomeVideosView from '../HomeVideosView'
-import HomeFailureView from '../HomeFailureView'
+import FailureView from '../FailureView'
 import NxtWatchContext from '../../context/NxtWatchContext'
 import {
   LoadingView,
@@ -19,7 +19,7 @@ import {
   BannerCloseButton,
   SearchContainer,
   SearchInput,
-  SearchIconContainer,
+  SearchIconButton,
 } from './styledComponents'
 
 const apiStatusConstants = {
@@ -98,10 +98,10 @@ class Home extends Component {
     this.setState({searchInput: ''}, this.getVideos)
   }
 
-  renderFailedView = () => <HomeFailureView onRetry={this.onRetry} />
+  renderFailedView = () => <FailureView onRetry={this.onRetry} />
 
   renderLoadingView = () => (
-    <LoadingView>
+    <LoadingView data-testid="loader">
       <Loader type="ThreeDots" color="#0b69ff" height={50} width={50} />
     </LoadingView>
   )
@@ -135,8 +135,8 @@ class Home extends Component {
             <>
               <Header />
               <LeftSideBar />
-              <HomeContainer style={styles}>
-                <BannerContainer display={display}>
+              <HomeContainer style={styles} data-testid="home">
+                <BannerContainer display={display} data-testid="banner">
                   <BannerLogoAndCloseButton>
                     <BannerLogo
                       src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
@@ -145,6 +145,7 @@ class Home extends Component {
                     <BannerCloseButton
                       type="button"
                       onClick={this.onClickCloseBanner}
+                      data-testid="close"
                     >
                       <AiOutlineClose size={20} color="#0f0f0f" />
                     </BannerCloseButton>
@@ -164,12 +165,13 @@ class Home extends Component {
                     value={searchInput}
                     onChange={this.onChangeSearchInput}
                   />
-                  <SearchIconContainer
+                  <SearchIconButton
                     type="button"
                     onClick={this.onClickSearch}
+                    data-testid="searchButton"
                   >
                     <AiOutlineSearch size={20} />
-                  </SearchIconContainer>
+                  </SearchIconButton>
                 </SearchContainer>
                 {this.renderHomeVideos()}
               </HomeContainer>

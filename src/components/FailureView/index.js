@@ -1,13 +1,13 @@
 import NxtWatchContext from '../../context/NxtWatchContext'
 import {
-  FailureView,
+  FailureViewContainer,
   FailureViewImage,
   FailureViewHeading,
   FailureViewNote,
   RetryButton,
 } from './styledCompoenets'
 
-const HomeFailureView = props => {
+const FailureView = props => {
   const {onRetry} = props
   const onClickRetry = () => {
     onRetry()
@@ -25,7 +25,7 @@ const HomeFailureView = props => {
           : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
 
         return (
-          <FailureView>
+          <FailureViewContainer>
             <FailureViewImage src={failureImageUrl} alt="failure view" />
             <FailureViewHeading color={styles.headingColor}>
               Oops! Something Went Wrong
@@ -37,11 +37,11 @@ const HomeFailureView = props => {
             <RetryButton type="button" onClick={onClickRetry}>
               Retry
             </RetryButton>
-          </FailureView>
+          </FailureViewContainer>
         )
       }}
     </NxtWatchContext.Consumer>
   )
 }
 
-export default HomeFailureView
+export default FailureView
