@@ -36,7 +36,9 @@ const HomeVideoItem = props => {
               <VideoDetails>
                 <ProfileImage src={profileImageUrl} alt="channel logo" />
                 <ContentSection>
-                  <Title key={title} color={color}>{title}</Title>
+                  <Title key={title} color={color}>
+                    {title}
+                  </Title>
                   <ChannelName color={color}>{channelName}</ChannelName>
                   <ViewsAndDate color={color}>
                     {viewCount} views <Dot> &#8226; </Dot> {publishedAt}

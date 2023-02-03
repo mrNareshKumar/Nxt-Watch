@@ -31,8 +31,8 @@ const Header = props => (
 
       const onClickLogout = () => {
         const {history} = props
-        Cookies.remove("jwt_token")
-        history.replace("/login")
+        Cookies.remove('jwt_token')
+        history.replace('/login')
       }
 
       const styles = {
@@ -55,7 +55,11 @@ const Header = props => (
             </Link>
           </NavLogoContainer>
           <NavMenuActionItems>
-            <ThemeButton type="button" onClick={toggleTheme} data-testid="theme">
+            <ThemeButton
+              type="button"
+              onClick={toggleTheme}
+              data-testid="theme"
+            >
               {isDarkTheme ? (
                 <BsBrightnessHighFill color="#ffffff" size={25} />
               ) : (
