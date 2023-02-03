@@ -9,7 +9,8 @@ export const LoadingView = styled.div`
 `
 export const HomeContainer = styled.div`
   min-height: 100vh;
-  overflow-y: auto;
+  overflow: auto;
+  margin-top: 60px;
   @media screen and (min-width: 768px) {
     margin-left: 250px;
   }
@@ -64,7 +65,7 @@ export const SearchContainer = styled.div`
   width: 90%;
   height: 35px;
   margin: 0px;
-  padding: 0px;
+  padding: 15px;
   margin-top: 10px;
   @media screen and (min-width: 768px) {
     width: 40%;
@@ -83,7 +84,7 @@ export const SearchIconContainer = styled.button`
   justify-content: center;
   align-items: center;
   width: 80px;
-  height: 100%;
+  height: 33px;
   border: none;
   cursor: pointer;
 `

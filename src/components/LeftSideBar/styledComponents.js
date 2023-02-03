@@ -8,10 +8,10 @@ export const LeftSideBarDesktopContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 0px;
   width: 250px;
   height: 90%;
   position: fixed;
+  margin-top: 60px;
 `
 export const SideBarOptions = styled.ul`
   display: flex

@@ -81,17 +81,17 @@ class Home extends Component {
     this.setState({bannerDisplay: 'none'})
   }
 
-  onChangeSearchInput = event => {
-    this.setState({searchInput: event.target.value})
-  }
-
   onClickSearch = () => {
     this.getVideos()
   }
 
+  onChangeSearchInput = event => {
+    this.setState({searchInput: event.target.value})
+  }
+
   renderVideosView = () => {
     const {homeVideos} = this.state
-    return <HomeVideosView homeVideos={homeVideos} />
+    return <HomeVideosView homeVideos={homeVideos} onRetry={this.onRetry} />
   }
 
   onRetry = () => {

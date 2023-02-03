@@ -6,6 +6,9 @@ export const NavHeader = styled.nav`
   justify-content: space-between;
   padding: 15px;
   padding-bottom: 0px;
+  width: 100%;
+  height: 60px;
+  position: fixed;
   @media screen and (min-width: 768px) {
     padding-left: 35px;
     padding-right: 35px;
