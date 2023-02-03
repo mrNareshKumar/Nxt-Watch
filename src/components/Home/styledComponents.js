@@ -22,7 +22,7 @@ export const BannerContainer = styled.div`
   background-size: cover;
   height: 200px;
   padding: 15px;
-  padding-top: 20px;
+  padding-top: 0px;
   padding-bottom: 20px;
 `
 export const BannerLogoAndCloseButton = styled.div`

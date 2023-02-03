@@ -12,6 +12,9 @@ export const LeftSideBarDesktopContainer = styled.div`
   height: 90%;
   position: fixed;
   margin-top: 60px;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
 `
 export const SideBarOptions = styled.ul`
   display: flex
@@ -28,6 +31,9 @@ export const SideBarOption = styled.li`
   align-items: center;
   padding-left: 15px;
   background-color: ${props => props.active};
+  @media screen and (max-width: 767px) {
+    padding-left: 0px;
+  }
 `
 export const OptionText = styled.p`
   font-family: Roboto;
@@ -67,7 +73,16 @@ export const ContactNote = styled.p`
   line-height: 1.5;
 `
 export const DownBarMobileContainer = styled.div`
-  @media screen and (min-width: 767px) {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: ${props => props.bgColor};
+  position: fixed;
+  bottom: 0;
+  align-items: center;
+  @media screen and (min-width: 768px) {
     display: none;
   }
 `

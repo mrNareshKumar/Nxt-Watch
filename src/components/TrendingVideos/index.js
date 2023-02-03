@@ -117,11 +117,11 @@ class TrendingVideos extends Component {
             backgroundColor: isDarkTheme === false ? '#f9f9f9' : '#0f0f0f',
           }
           return (
-            <div data-testid="trending">
+            <div>
               <Header />
               <LeftSideBar />
               <TrendingContainer data-testid="trending" style={styles}>
-                <TrendingVideoTitle>
+                <TrendingVideoTitle data-testid="trending">
                   <TitleIconContainer>
                     <HiFire size={35} color="#ff0000" />
                   </TitleIconContainer>

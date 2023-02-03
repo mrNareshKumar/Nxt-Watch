@@ -2,12 +2,18 @@ import styled from 'styled-components'
 
 export const VideoPlayer = styled.div`
   padding: 20px;
+  @media screen and (max-width: 767px) {
+    padding: 10px;
+  }
 `
 
 export const PlayVideoTitle = styled.p`
   font-family: Roboto;
   font-size: 25px;
   color: ${props => props.color};
+  @media screen and (max-width: 767px) {
+    font-size: 16px;
+  }
 `
 export const PlayVideoStatusContainer = styled.div`
   display: flex;

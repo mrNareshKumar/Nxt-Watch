@@ -137,7 +137,7 @@ class Home extends Component {
               <LeftSideBar />
               <HomeContainer style={styles} data-testid="home">
                 <BannerContainer display={display} data-testid="banner">
-                  <BannerLogoAndCloseButton>
+                  <BannerLogoAndCloseButton data-testid="close">
                     <BannerLogo
                       src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                       alt="nxt watch logo"
@@ -150,7 +150,7 @@ class Home extends Component {
                       <AiOutlineClose size={20} color="#0f0f0f" />
                     </BannerCloseButton>
                   </BannerLogoAndCloseButton>
-                  <BannerContent>
+                  <BannerContent data-testid="close">
                     <BannerText>
                       Buy Nxt Watch Premium prepaid plans with <br />
                       UPI

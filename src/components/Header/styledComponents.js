@@ -5,7 +5,6 @@ export const NavHeader = styled.nav`
   flex-direction: row;
   justify-content: space-between;
   padding: 15px;
-  padding-bottom: 0px;
   width: 100%;
   height: 60px;
   position: fixed;

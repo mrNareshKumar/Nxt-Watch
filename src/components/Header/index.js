@@ -37,7 +37,7 @@ const Header = props => (
 
       const styles = {
         color: isDarkTheme === false ? ' #181818' : '#f9f9f9',
-        backgroundColor: isDarkTheme === false ? '#f9f9f9' : '#212121',
+        backgroundColor: isDarkTheme === false ? '#f1f1f1' : '#212121',
       }
 
       return (

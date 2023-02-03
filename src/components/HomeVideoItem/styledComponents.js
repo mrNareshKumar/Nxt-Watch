@@ -10,6 +10,7 @@ export const ListItem = styled.li`
   background: none;
   width: 100%;
   margin-right: 10px;
+  margin-bottom: 30px;
   @media screen and (min-width: 768px) {
     width: 340px;
     margin-bottom: 30px;
@@ -34,7 +35,7 @@ export const ContentSection = styled.div`
   flex-direction: column;
   justify-content: flex-start;
 `
-export const Title = styled.h1`
+export const Title = styled.p`
   font-family: Roboto;
   font-size: 15px;
   color: ${props => props.color};

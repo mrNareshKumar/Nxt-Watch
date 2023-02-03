@@ -24,7 +24,7 @@ const LeftSideBar = () => (
       const {isDarkTheme, activeTab, setActiveTab} = value
       const Styles = {
         color: isDarkTheme ? '#f9f9f9' : '#181818',
-        backgroundColor: isDarkTheme ? '#212121' : '#f9f9f9',
+        backgroundColor: isDarkTheme ? '#212121' : '#f1f1f1',
       }
       const activeTabBgColor = isDarkTheme ? '#383838' : '#f1f5f9'
 
@@ -126,57 +126,48 @@ const LeftSideBar = () => (
               </ContactNote>
             </ContactContainer>
           </LeftSideBarDesktopContainer>
-          <DownBarMobileContainer>
-            <SideBarOptions>
-              <SideBarLink to="/">
-                <SideBarOption
-                  key="home"
-                  active={activeTab === 'Home' ? activeTabBgColor : ''}
-                  onClick={() => setActiveTab('Home')}
-                >
-                  <AiFillHome
-                    size={20}
-                    color={activeTab === 'Home' ? '#ff0000' : '#928F91'}
-                  />
-                </SideBarOption>
-              </SideBarLink>
-              <SideBarLink to="/trending">
-                <SideBarOption
-                  key="trending"
-                  active={activeTab === 'Trending' ? activeTabBgColor : ''}
-                  onClick={() => setActiveTab('Trending')}
-                >
-                  <HiFire
-                    size={20}
-                    color={activeTab === 'Trending' ? '#ff0000' : '#928F91'}
-                  />
-                </SideBarOption>
-              </SideBarLink>
-              <SideBarLink to="/gaming">
-                <SideBarOption
-                  key="gaming"
-                  active={activeTab === 'Gaming' ? activeTabBgColor : ''}
-                  onClick={() => setActiveTab('Gaming')}
-                >
-                  <SiYoutubegaming
-                    size={20}
-                    color={activeTab === 'Gaming' ? '#ff0000' : '#928F91'}
-                  />
-                </SideBarOption>
-              </SideBarLink>
-              <SideBarLink to="/saved-videos">
-                <SideBarOption
-                  key="savedVideos"
-                  active={activeTab === 'Saved videos' ? activeTabBgColor : ''}
-                  onClick={() => setActiveTab('Saved videos')}
-                >
-                  <CgPlayListAdd
-                    size={20}
-                    color={activeTab === 'Saved videos' ? '#ff0000' : '#928F91'}
-                  />
-                </SideBarOption>
-              </SideBarLink>
-            </SideBarOptions>
+          <DownBarMobileContainer style={Styles}>
+            <SideBarLink to="/">
+              <SideBarOption key="home" onClick={() => setActiveTab('Home')}>
+                <AiFillHome
+                  size={30}
+                  color={activeTab === 'Home' ? '#ff0000' : '#928F91'}
+                />
+              </SideBarOption>
+            </SideBarLink>
+            <SideBarLink to="/trending">
+              <SideBarOption
+                key="trending"
+                onClick={() => setActiveTab('Trending')}
+              >
+                <HiFire
+                  size={30}
+                  color={activeTab === 'Trending' ? '#ff0000' : '#928F91'}
+                />
+              </SideBarOption>
+            </SideBarLink>
+            <SideBarLink to="/gaming">
+              <SideBarOption
+                key="gaming"
+                onClick={() => setActiveTab('Gaming')}
+              >
+                <SiYoutubegaming
+                  size={30}
+                  color={activeTab === 'Gaming' ? '#ff0000' : '#928F91'}
+                />
+              </SideBarOption>
+            </SideBarLink>
+            <SideBarLink to="/saved-videos">
+              <SideBarOption
+                key="savedVideos"
+                onClick={() => setActiveTab('Saved videos')}
+              >
+                <CgPlayListAdd
+                  size={30}
+                  color={activeTab === 'Saved videos' ? '#ff0000' : '#928F91'}
+                />
+              </SideBarOption>
+            </SideBarLink>
           </DownBarMobileContainer>
         </NavBarContainer>
       )
